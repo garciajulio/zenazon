@@ -1,0 +1,48 @@
+.Title{
+    padding: 10px 0;
+    border-bottom: solid 2px #FE9B00;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+}
+
+h2{
+    font-weight: 700;
+}
+
+.Form{
+    width: 80%;
+    margin: auto;
+    padding: 40px 0;
+}
+
+.Form form{
+    display: grid;
+    row-gap: 25px;
+}
+
+.Form form > div{
+    display: flex;
+    align-items: center;
+}
+
+.Form div > span{
+    margin-left: 15px;
+}
+
+.Form input{
+    padding: 15px;
+    background: #f6f8fa;
+    border: solid 1px #d0d7de;
+    border-radius: 6px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.Form input[type="submit"]{
+    background: #FE9B00;
+    border: solid 1px #FE9B00;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.1rem;
+}

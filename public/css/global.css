@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #F9F9F9;
+    color: #030303;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+}
+
+.Header{
+    width: 100%;
+    height: 60px;
+    padding: 0 70px;
+    background: #121212;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.Header img{
+    cursor: pointer;
+}
+
+.Header span{
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.MenuLeft{
+    background: #fff;
+    width: 25%;
+    height: 100vh;
+    position: fixed;
+    z-index: 1;
+    left: -700px;
+    top: 0;
+    display: grid;
+    justify-items: center;
+    align-items: start;
+    -webkit-box-shadow: 10px 0px 20px -3px rgba(0,0,0,0.1);
+    -moz-box-shadow: 10px 0px 20px -3px rgba(0,0,0,0.1);
+    box-shadow: 10px 0px 20px -3px rgba(0,0,0,0.1);
+    transition: all ease .6s;
+}
+
+.MenuLeft_wrapper{
+    width: 100%;
+    display: grid;
+    place-items: center;
+    row-gap: 40px;
+    padding-top: 30px;
+}
+
+.MenuLeft_button{
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    background: #F87F76;
+    border-radius: 50%;
+    height: 45px;
+    width: 45px;
+    display: grid;
+    place-items: center;
+}
+
+.MenuLeft_links{
+    width: 100%;
+    display: grid;
+}
+
+.MenuLeft_links a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: solid 1px rgba(0,0,0,0.1);
+    color: #030303;
+    font-weight: 300;
+}
+
+.MenuLeft_links a:hover{
+    background: #F4EAE1;
+}
+
+.MenuLeft_help a{
+    color: #0e82de;
+}
+
+.Footer{
+    color: #fff;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background:#24292F; 
+    font-size: .8em;
+}
