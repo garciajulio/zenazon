@@ -1,0 +1,78 @@
+.Nav{
+    width: 100%;
+    padding: 15px 50px;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Nav span{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.Nav input{
+    width: 250px;
+    border: none;
+    outline: none;
+    padding: 7px 0;
+    background: none;
+    font-size: 1rem;
+    border-bottom: solid 1px #fff;
+    color: #fff;
+}
+
+.Nav input::placeholder{
+    color: rgba(255, 255, 255,.80);
+}
+
+.Main{
+    padding: 40px 20px;
+    gap: 40px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.Empty{
+    width: 90%;
+    margin: auto;
+    margin-top: 80px;
+    display: grid;
+    place-items: center;
+    row-gap: 30px;
+}
+
+.Empty img{
+    width: 550px;
+}
+
+.Empty span{
+    font-size: 1.5rem;
+    color: rgb(114,114,114);
+}
+
+.Main_card{
+    display: grid;
+    row-gap: 10px;
+}
+
+.Main_card > img{
+    object-fit: cover;
+    object-position: center;
+    border: solid 2px var(--main-color);
+}
+
+.Main_actions{
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #000;
+}
+
+.Main_actions img,.Main_actions a{
+    cursor: pointer;
+    vertical-align: middle;
+}

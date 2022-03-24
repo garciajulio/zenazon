@@ -4,11 +4,20 @@
     box-sizing: border-box;
 }
 
+:root{
+    --main-color: #FE9B00;   
+    --link-color: #0791e6;
+}
+
 body{
     background: #F9F9F9;
     color: #030303;
     font-size: 16px;
     font-family: 'Lato', sans-serif;
+}
+
+.Root{
+    margin: 40px auto;
 }
 
 .Header{
@@ -63,7 +72,7 @@ body{
     font-size: 1.5rem;
     font-weight: 700;
     color: #fff;
-    background: #F87F76;
+    background: var(--main-color);
     border-radius: 50%;
     height: 45px;
     width: 45px;
@@ -102,4 +111,15 @@ body{
     align-items: center;
     background:#24292F; 
     font-size: .8em;
+}
+
+.MsgError{
+    width: 100%;
+    background: #ff2658ba;
+    padding: 10px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    position: relative;
+    top: 0;
 }

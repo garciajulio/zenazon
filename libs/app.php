@@ -17,18 +17,6 @@ class App{
             return false;
         }
 
-
-        if(preg_match('/^@/', $url[0]) and substr_count($url[0],'@') == 1){
-            $fileController = 'controllers/tienda.php';
-            require_once $fileController;
-            $controller = new Tienda();
-            return false;
-
-            /* falta completar */
-
-        }
-
-
         $fileController = 'controllers/'.$url[0].'.php';
 
         if(file_exists($fileController)){

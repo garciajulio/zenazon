@@ -4,7 +4,7 @@
         function __construct(){
         }
 
-        function render($name){
+        function render($name,$data){
             require 'views/'.$name.'.php';
         }
     }

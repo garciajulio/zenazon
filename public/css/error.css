@@ -1,0 +1,30 @@
+.Error{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../img/texture.png');
+    background-size: 200px;
+    background-color: #000;
+    color: #fff;
+    display: grid;
+    place-items: center;
+}
+
+.Error h1{
+    font-size: 3rem;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 60px;
+}
+
+.Error img{
+    position: relative;
+    animation: rotate 2.5s infinite alternate;
+    transform: rotateZ(0deg);
+}
+
+
+@keyframes rotate{
+    100%{
+        transform: rotateZ(15deg);
+    }
+}

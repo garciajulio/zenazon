@@ -1,18 +1,22 @@
 <header class="Header">
-    <img id="buttonOpen" src="../public/img/button.svg" width="25" alt="X" loading="lazy">
-    <span>@Julio Cesar</span>
+    <img id="buttonOpen" src="<?php echo constant('URL');?>public/img/button.svg" width="25" alt="X" loading="lazy">
+    <span><?php echo $_SESSION['email'];?></span>
 </header>
 <div class="MenuLeft" id="menuLeft">
     <div class="MenuLeft_wrapper">
         <span class="MenuLeft_button" id="buttonClose">X</span>
         <div class="MenuLeft_links">
-            <a href="agregar">Agregar Producto</a>
-            <a href="productos">Productos</a>
-            <a href="ventas">Ventas</a>
-            <a href="configuracion">Configuración</a>
+            <a href="<?php echo constant('URL').'panel/productos';?>">Inicio</a>
+            <a href="<?php echo constant('URL').'panel/agregar/';?>">Agregar</a>
+            <a href="<?php echo constant('URL').'panel/ventas';?>">Ventas</a>
+            <a href="<?php echo constant('URL').'panel/configuracion';?>">Configuración</a>
         </div>
         <div class="MenuLeft_help">
-            <a href="#">¿Necesitas ayuda?</a>
+            <a href="?logout=true">Cerrar Sesión</a>
         </div>
+        <?php if(isset($_GET['logout'])){
+            session_destroy();
+            header("Location: ".constant('URL').'login/');
+        } ?>
     </div>
 </div>
