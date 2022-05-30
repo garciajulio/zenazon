@@ -1,0 +1,81 @@
+.Nav{
+    width: 100%;
+    padding: 15px 0;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Nav span{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.Ventas{
+    width: 96%;
+    display: grid;
+    row-gap: 40px;
+    margin: 40px auto;
+}
+
+.Ventas_main{
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.Ventas_main a{
+    background: var(--main-color);
+    color: #fff;
+    padding: 15px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.Ventas_main span{
+    border: solid 2px #0FE39F;
+    font-size: 1.5rem;
+    color: #0FE39F;
+    padding: 20px 15px;
+}
+
+
+.Ventas_table__head{
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(5,1fr);
+    background: #ffc107;
+    padding: 15px;
+}
+
+.Ventas_table__head p{
+    font-size: 1.050rem;
+    font-weight: bold;
+}
+
+.Ventas_table__body{
+    display: grid;
+    background: #fff;
+}
+
+.Ventas_table__body > div:nth-child(2n){
+    background: #8babc52e;
+}
+
+.Ventas_table__body > div{
+    padding: 15px;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    grid-template-columns: repeat(5,1fr);
+}
+
+.Ventas_table__body a{
+    color: red;
+}

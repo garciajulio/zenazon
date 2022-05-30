@@ -15,11 +15,18 @@ class Inicio extends Controller{
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            if($this->model->insert(['email' => $email, 'password' => $password])){
+            $key = $this->model->insert(['email' => $email, 'password' => $password]);
+
+            if(gettype($key) == 'string'){
+
                 $_SESSION['email'] = $email;
                 $_SESSION['isLogged'] = true;
+                $_SESSION['unique'] = $key;
                 header('location: '.constant('URL').'panel/productos');
-            }else{ $_SESSION['errorLogin'] = true; }
+
+            }else{
+                $_SESSION['errorLogin'] = true;
+            }
 
         }else{ header('location: '.constant('URL').'login/'); }
     }

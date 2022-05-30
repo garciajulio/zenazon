@@ -1,0 +1,22 @@
+form{
+    width: 96%;
+    margin: 50px auto;
+    display: grid;
+    row-gap: 25px;
+}
+
+form input{
+    border: solid 1px #ccc;
+    outline: none;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+form input[type="submit"]{
+    border: none;
+    color: #fff;
+    padding: 20px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: var(--main-color);
+}

@@ -10,16 +10,16 @@ class Agregar extends Controller{
     
     function producto(){
 
-        if(isset($_POST['nombre']) && isset($_POST['imagen']) && isset($_POST['stock']) && isset($_POST['info']) && isset($_POST['precio']) && isset($_POST['owner'])){
+        if(isset($_POST['nombre']) && isset($_POST['imagen']) && isset($_POST['stock']) && isset($_POST['info']) && isset($_POST['precio'])){
 
             $nombre = $_POST['nombre'];
             $imagen = $_POST['imagen'];
             $stock = $_POST['stock'];
             $precio = $_POST['precio'];
             $info = $_POST['info'];
-            $owner = $_POST['owner'];
+            $unique = $_SESSION['unique'];
 
-            if($this->model->insert(['nombre' => $nombre, 'imagen' => $imagen, 'stock' => $stock, 'precio' => $precio, 'info' => $info, 'owner' => $owner])){
+            if($this->model->insert(['nombre' => $nombre, 'imagen' => $imagen, 'stock' => $stock, 'precio' => $precio, 'info' => $info, 'unique' => $unique])){
                 header('location: '.constant('URL').'panel/productos');
             }else{ echo "<script>alert('Error al agregar');</script>"; }
 

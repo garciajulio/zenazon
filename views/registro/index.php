@@ -23,7 +23,7 @@
     <div class="Form">
     <form action="<?php echo constant('URL')."nuevo/registro"; ?>" method="POST">
         <input placeholder="Nombre de tu tienda" type="text" name="tienda" autocomplete="off" required>
-        <input pattern="^[a-z]+$" placeholder="Link de tu tienda" type="text" name="url" autocomplete="off" required>
+        <input maxlength="15" pattern="^[a-z]+$" placeholder="Link de tu tienda" type="text" name="url" autocomplete="off" required>
         <input placeholder="WhatsApp de tu tienda" type="text" name="telefono" autocomplete="off" required>
         <input placeholder="Descripción de tu catálogo" type="text" name="info" autocomplete="off" required>
         <input placeholder="Correo Electrónico" type="email" name="email" autocomplete="off" required>

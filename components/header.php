@@ -9,6 +9,7 @@
             <a href="<?php echo constant('URL').'panel/productos';?>">Inicio</a>
             <a href="<?php echo constant('URL').'panel/agregar/';?>">Agregar</a>
             <a href="<?php echo constant('URL').'panel/ventas';?>">Ventas</a>
+            <a href="<?php echo constant('URL').'panel/marketing';?>">Marketing</a>
             <a href="<?php echo constant('URL').'panel/configuracion';?>">Configuración</a>
         </div>
         <div class="MenuLeft_help">

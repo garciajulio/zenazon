@@ -12,8 +12,8 @@ class Panel extends Controller{
     }
 
     function productos(){
-        $email = $_SESSION['email'];
-        $data = $this->model->getProducts($email);
+        $unique = $_SESSION['unique'];
+        $data = $this->model->getProducts($unique);
         $this->view->render('panel/index',$data);
     }
 
@@ -22,11 +22,27 @@ class Panel extends Controller{
     }
 
     function ventas(){
-        $this->view->render('panel/ventas',null);
+        $unique = $_SESSION['unique'];
+        $ventas = $this->model->getVentas($unique);
+        $gananciaTotal = $this->model->getSumTotal($unique);
+        $data = array($ventas,$gananciaTotal);
+        $this->view->render('panel/ventas',$data);
+    }
+
+    function venta(){
+        $this->view->render('panel/nuevaventa',null);
     }
 
     function configuracion(){
-        $this->view->render('panel/configuracion',null);
+        $unique = $_SESSION['unique'];
+        $data = $this->model->getData($unique);
+        $this->view->render('panel/configuracion',$data);
+    }
+
+    function marketing(){
+        $unique = $_SESSION['unique'];
+        $data = $this->model->getCupones($unique);
+        $this->view->render('panel/marketing',$data);
     }
 
     function editar(){

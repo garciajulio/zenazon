@@ -1,0 +1,60 @@
+.Nav{
+    width: 100%;
+    padding: 15px 0;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Nav span{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.Config{
+    padding: 40px 0;
+    display: grid;
+    row-gap: 40px;
+    justify-items: center;
+}
+
+.Config_url{
+    width: auto;
+    padding: 15px 40px;
+    border: 1px solid #ccc;
+    background: #cecece52;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: #4e4e4e;
+    font-size: 1.150rem;
+}
+
+.Config_url img{
+    margin-right: 20px;
+}
+
+.Config_form{
+    display: grid;
+    row-gap: 20px;
+    width: 80%;
+}
+
+.Config_form input{
+    padding: 15px;
+    border: solid 1px #ccc;
+    font-size: 1.1rem;
+    outline: none;
+}
+
+.Config_form input[type="submit"]{
+    border: none;
+    color: #fff;
+    padding: 15px 0;
+    font-size: 1.2rem;
+    cursor: pointer;
+    background: var(--main-color);
+}

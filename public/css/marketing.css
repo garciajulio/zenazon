@@ -1,0 +1,73 @@
+.Nav{
+    width: 100%;
+    padding: 15px 0;
+    background: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Nav span{
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.Marketing{
+    width: 96%;
+    margin: auto;
+    padding: 40px 0;
+    display: grid;
+    row-gap: 40px;
+}
+
+.Marketing_body form{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.Marketing_body input{
+    width: 100%;
+    font-size: 1.025rem;
+    outline: none;
+    border: solid 1px #ccc;
+    padding: 15px;
+}
+
+.Marketing_body button{
+    background: var(--main-color);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.Marketing_history div:nth-child(2n){
+    background: #dff5f9;
+}
+
+.Marketing_history div{
+    padding: 15px;
+    display: grid;
+    column-gap: 30px;
+    font-size: 1.025rem;
+    align-items: center;
+    grid-template-columns: .5fr 1fr auto;
+}
+
+.Marketing_history span:first-child{
+    font-weight: bold;
+}
+
+.Marketing_history a{
+    background: #FF0000;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-decoration: none;
+    width: fit-content;
+}
