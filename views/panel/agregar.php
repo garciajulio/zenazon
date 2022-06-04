@@ -31,7 +31,6 @@
     </div>
 
     <div class="Agregar_right">
-        <input type="hidden" name="owner" value="<?php echo $_SESSION['email'] ?>">
         <input autoComplete="off" name="nombre" placeholder="Nombre del producto" type="text" required>
         <input autoComplete="off" step="0.01" min="0.50" max="5000.00" name="precio" placeholder="Precio: S/" type="number" required>
         <input autoComplete="off" name="info" placeholder="Información del producto" type="text" required>

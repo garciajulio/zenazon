@@ -15,6 +15,13 @@
 
 <?php $precio = number_format($data[1]->precio,2); ?>
 
+<form action="<?php echo constant('URL').'t/'.$data[0]->url_tienda.'/gracias';?>" id="form" method="POST">
+    <input type="hidden" name="nombre" value="<?php echo $data[1]->nombre;?>">
+    <input type="hidden" name="precio" value="<?php echo $precio; ?>">
+    <input type="hidden" name="stock" value="1">
+    <input type="hidden" name="">
+</form>
+
 <div class="CardMain">
     
     <img width="250" src="<?php echo 'https://storage.googleapis.com/zenazon.appspot.com/productos/'.$data[1]->url_imagen; ?>" alt="">
@@ -26,6 +33,8 @@
 </div>
 
 <script>
+
+    const formulario = document.getElementById('form');
 
     paypal.Buttons({
 
@@ -46,24 +55,17 @@
 
         onApprove: (data, actions) => {
             
-            /*return actions.order.capture()
+            return actions.order.capture()
             .then(function(orderData) {
             
-            // Successful capture! For dev/demo purposes:
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-
             const transaction = orderData.purchase_units[0].payments.captures[0];
 
-            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
+            console.log(`Transaction ${transaction.status}: ${transaction.id} See console for all available details`);
             
-
-
+            formulario.submit();
+            
             })
-            .catch(err){
-                alert("Error de compra");
-            }
-
-            -*/
         },
 
         onCancel: function (data) {
@@ -77,5 +79,7 @@
     }).render('#paypal-button-container');
 
 </script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="<?php echo constant('URL');?>public/js/carrito.js"></script>
 </body>
 </html>

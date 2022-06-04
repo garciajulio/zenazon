@@ -31,6 +31,8 @@ class App{
                 $controller->p($controller);
             }elseif($url[2] == 'cart'){
                 $controller->cart($controller);
+            }elseif($url[2] == 'gracias'){
+                $controller->gracias($controller);
             }else{
                 $controller = new Errores();
             }

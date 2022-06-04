@@ -21,6 +21,18 @@ class Tienda extends Controller{
             $this->view->render("tienda/index",$data);
         }
     }
+
+    public function gracias(){
+        if(isset($_POST['nombre']) && isset($_POST['precio']) && isset($_POST['stock'])){
+        
+        $nombre = $_POST['nombre'];
+        $precio = $_POST['precio'];
+        $stock = $_POST['stock'];
+        $data = ['nombre' => $nombre,'precio' => $precio, 'stock' => $stock];
+        $this->view->render("tienda/gracias",$data);
+
+        }else echo "Error 403 - No autorizado";
+    }
     
     public function p(){
         $shop = $this->model->getTienda(['url' => $this->url]);

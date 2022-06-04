@@ -17,6 +17,7 @@ class CanjearModel extends Model{
             }
 
             return 100;
+            
         }catch(PDOException $e){
             return 100;
         }

@@ -63,10 +63,10 @@ class PanelModel extends Model{
         }
     }
 
-    public function editId($id,$email){
+    public function editId($id,$unique){
         try{
-            $query = $this->db->connect()->prepare('SELECT * FROM PRODUCTOS WHERE id_producto = :id AND owner_producto = :owner');
-            $query->execute(['id' => $id,'owner' => $email]);
+            $query = $this->db->connect()->prepare('SELECT * FROM PRODUCTOS WHERE id_producto = :id AND id_privado = :unique');
+            $query->execute(['id' => $id,'unique' => $unique]);
             $data = $query->fetchAll(PDO::FETCH_OBJ);
             return $data;
         }catch(PDOException $e){

@@ -47,10 +47,12 @@ class Panel extends Controller{
 
     function editar(){
         if(isset($_GET['id'])){
+
             $id = $_GET['id'];
-            $email = $_SESSION['email'];
-            $data = $this->model->editId($id,$email);
+            $unique = $_SESSION['unique'];
+            $data = $this->model->editId($id,$unique);
             $this->view->render('panel/editar',$data);
+        
         }else{
             header("Location: ".constant('URL').'panel/agregar');
         }
