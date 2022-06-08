@@ -16,20 +16,33 @@
 <?php $precio = number_format($data[1]->precio,2); ?>
 
 <form action="<?php echo constant('URL').'t/'.$data[0]->url_tienda.'/gracias';?>" id="form" method="POST">
+    <input type="hidden" name="tienda" value="<?php echo $data[0]->nombre_tienda;?>">
     <input type="hidden" name="nombre" value="<?php echo $data[1]->nombre;?>">
     <input type="hidden" name="precio" value="<?php echo $precio; ?>">
     <input type="hidden" name="stock" value="1">
-    <input type="hidden" name="">
+    <input type="hidden" name="id">
 </form>
 
 <div class="CardMain">
-    
-    <img width="250" src="<?php echo 'https://storage.googleapis.com/zenazon.appspot.com/productos/'.$data[1]->url_imagen; ?>" alt="">
     <h1><?php echo $data[1]->nombre; ?> </h1>
-    <p><?php echo $data[1]->informacion; ?></p>
-    <span>$/ <?php echo $precio; ?></span>
+    <div class="CardMain_info">
+        <p><?php echo $data[1]->informacion; ?></p>
+        <img width="350" src="<?php echo 'https://storage.googleapis.com/zenazon.appspot.com/productos/'.$data[1]->url_imagen; ?>" alt="">
+        <span>$/ <?php echo $precio; ?></span>
+    </div>
     <div id="paypal-button-container"></div>
+</div>
 
+<div class="CardRecomend">
+    <h3>Recomendado para tí <3</h3>
+    <div>
+        <?php foreach($data[2] as $index){?>
+        <div>
+            <img height="180" width="100%" src="<?php echo 'https://storage.googleapis.com/zenazon.appspot.com/productos/'.$index->url_imagen; ?>" alt="">
+            <a href="<?php echo constant('URL').'t/'.$data[0]->url_tienda.'/p/'.$index->id_producto;?>">Ver más</a>
+        </div>
+        <?php } ?>
+    </div>
 </div>
 
 <script>

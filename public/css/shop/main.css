@@ -128,31 +128,71 @@
 
 .CardMain{
     width: 90%;
-    text-align: center;
-    margin: auto;
-    border: solid 1px #cccccc50;
-    background: #fff;
+    margin: 20px auto;
     padding: 20px;
     display: grid;
-    row-gap: 15px;
-    justify-items: center;
-    border-radius: .5rem;
 }
 
-.CardMain span{
+.CardMain_info{
+    margin: 40px 0;
+    display: grid;
+    justify-items: center;
+    row-gap: 30px;
+    padding: 20px;
+    background: #f5f5f5;
+    outline: solid 1px #cccccc80;
+    box-shadow: 0 2px 1px 0 #00000030;
+}
+
+.CardMain_info span{
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.CardMain > h1{
     font-weight: bold;
     font-size: 2rem;
+    text-align: center;
 }
 
 #paypal-button-container{
-    max-width: 350px;
+    min-width: 400px;
     margin: auto;
 }
 
+.CardRecomend{
+    width: 95%;
+    margin: 30px auto;
+}
 
+.CardRecomend img{
+    object-fit: cover;
+    object-position: top center;
+}
 
+.CardRecomend > div{
+    display: grid;
+    margin: 20px 0;
+    column-gap: 40px;
+    grid-auto-flow: column;
+    grid-auto-columns: 180px;
+}
 
+.CardRecomend > div > div{
+    display: grid;
+}
 
+.CardRecomend > div a{
+    margin-top: 15px;
+    border: solid 2px var(--main-color);
+    font-weight: bold;
+    color: var(--main-color);
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    text-align: center;
+}
 
 .Cart{
     width: 94%;
@@ -259,7 +299,6 @@
 }
 
 .Cart_form form > div{
-    margin-top: 30px;
     display: grid;
     justify-items: center;
 }

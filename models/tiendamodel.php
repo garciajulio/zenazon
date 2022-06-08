@@ -32,15 +32,29 @@ class TiendaModel extends Model{
         }
         
         return false;
+        
         }catch(Exception $e){
             return false;
         }
     }
 
+
+    public function getSimilarProducts($datos){
+        try{
+            $query=$this->db->connect()->prepare('SELECT id_producto,url_imagen FROM PRODUCTOS WHERE id_producto != :id AND id_privado = :unique LIMIT 4');
+            $query->execute(['id' => $datos['id'],'unique' => $datos['unique']]);
+            $data = $query->fetchAll(PDO::FETCH_OBJ);
+            return $data;
+        }catch(Exception $e){
+            return false;
+        }
+    }
+
+
     public function getTienda($datos){
         try{
         
-        $query=$this->db->connect()->prepare('SELECT * FROM TIENDAS,PRODUCTOS WHERE url_tienda = :url');
+        $query=$this->db->connect()->prepare('SELECT * FROM TIENDAS WHERE url_tienda = :url');
         $query->execute(['url' => $datos['url']]);
         
         if($query->rowCount()){

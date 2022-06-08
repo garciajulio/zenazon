@@ -27,9 +27,7 @@
     </div>
     <div class="Cart_form">
         <form action="">
-            <h3>Proceso de Compra</h3>
-            <input autoComplete="off" maxlength="15" name="telef" placeholder="Telefono de Contacto" type="text" required>
-            <input maxlength="255" autoComplete="off" name="direccion" placeholder="Direccion de entrega" type="text" required>
+            <h3>Pagar</h3>
             <div>
                 <div id="paypal-button-container"></div>
             </div>

@@ -58,11 +58,16 @@ function updateCount(){
 function mapCart(){
     let cart = window.localStorage.getItem('carrito');
     const boxCart = document.getElementById('Cart_list');
+    const form = document.querySelector('.Cart_form');
+    const cupon = document.querySelector('.Cart_cupon');
     let totalPrice = 0;
 
     if(cart == null){
+        cupon.style = "display: none";
+        form.style = "display: none";
         const empty = document.createElement('div');
         empty.innerHTML = "<h3>El carrito está vacio</h3>";
+        boxCart.innerHTML = "";
         boxCart.appendChild(empty);
     }else{
         cart = JSON.parse(cart);

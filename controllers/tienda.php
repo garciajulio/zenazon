@@ -13,7 +13,6 @@ class Tienda extends Controller{
         $shop = $this->model->getTienda(['url' => $this->url]);
         
         if($shop == False) $this->view->render("error/index",null);
-
         else{
             $key = $shop->id_privado;
             $productos = $this->model->getProductos(['unique'=> $key]);
@@ -25,14 +24,20 @@ class Tienda extends Controller{
     public function gracias(){
         if(isset($_POST['nombre']) && isset($_POST['precio']) && isset($_POST['stock'])){
         
+        $tienda = $_POST['tienda'];
         $nombre = $_POST['nombre'];
         $precio = $_POST['precio'];
         $stock = $_POST['stock'];
-        $data = ['nombre' => $nombre,'precio' => $precio, 'stock' => $stock];
+
+        $table = array([$stock,$nombre,$precio]);
+        $info = $info = array('precio'=>$precio,'id'=>'aw0vb9x4d77fuo','tienda'=>$tienda);
+        $data = array($table,$info);
         $this->view->render("tienda/gracias",$data);
 
         }else echo "Error 403 - No autorizado";
     }
+
+
     
     public function p(){
         $shop = $this->model->getTienda(['url' => $this->url]);
@@ -50,13 +55,12 @@ class Tienda extends Controller{
             return;
         }
 
-        $PAYPAL_CLIENT = "Ad-MIanBE1gD7w4MzIwnqtQ-RSHR-x-EKYjWDFcfF2RJvnaF2TFHLBEz_CfOD13asCz_D_brp7bajn9t";
-        $PAYPAL_SECRET = "EIt9_o-I7cCeHPGuhxWsI1HSp5tcgromXstruMxz1POlRxdjnRVdNUiRrnAJPBEwaxx4ITJ811GC4uof";
-
-        $data = array($shop,$product);
+        $recomend = $this->model->getSimilarProducts(['unique' => $shop->id_privado,'id' => $id]);
+        $data = array($shop,$product,$recomend);
         $this->view->render("tienda/producto",$data);
     }
 
+    
     public function cart(){
         $shop = $this->model->getTienda(['url'=> $this->url]);
 
