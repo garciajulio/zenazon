@@ -3,34 +3,33 @@ $(document).ready(function(){
 });
 
 
-const btnCanjear = document.getElementById('btnCanjear');
-const inputCupon = document.getElementById('nombreCupon');
-
-btnCanjear.addEventListener('click', () => {
-
-    valueCupon = inputCupon.value;
-    
-    if(!valueCupon){
-        alert("Inserta el nombre del cupón");
-        return;
-    }
-
-    const URLactual = window.location.pathname;
-    window.location.href = URLactual+"?cupon="+valueCupon;
-
-})
-
-
 function canejarCupon(percent){
+
+    const inputNombres = document.getElementById('inputNombres');
+    const inputPrecios = document.getElementById('inputPrecio');
+    const inputStock = document.getElementById('inputStock');
+
 
     let cart = window.localStorage.getItem('carrito');
     if(cart == null) return;
     let totalPrice = 0;
+    inputNombres.value = "";
+    inputPrecios.value = "";
+    inputStock.value = "";
 
     cart = JSON.parse(cart);
+    const urlTienda = window.location.href.split("/")[5];
+
     cart.map((index) => {
 
-        totalPrice += parseInt((index.precio*percent)/100);
+        if(urlTienda !== index.tienda) return;
+
+        let oferta = (index.precio*percent)/100;
+
+        inputNombres.value = index.nombre+";"+inputNombres.value;
+        inputPrecios.value = oferta+";"+inputPrecios.value;
+        inputStock.value = index.stock+";"+inputStock.value;
+        totalPrice += oferta;
 
         const product = document.createElement("div");
         product.innerHTML = 
@@ -56,11 +55,20 @@ function updateCount(){
 }
 
 function mapCart(){
+
+    const inputNombres = document.getElementById('inputNombres');
+    const inputPrecios = document.getElementById('inputPrecio');
+    const inputStock = document.getElementById('inputStock');
+
+    const urlTienda = window.location.href.split("/")[5];
     let cart = window.localStorage.getItem('carrito');
     const boxCart = document.getElementById('Cart_list');
     const form = document.querySelector('.Cart_form');
     const cupon = document.querySelector('.Cart_cupon');
     let totalPrice = 0;
+    inputNombres.value = "";
+    inputPrecios.value = "";
+    inputStock.value = "";
 
     if(cart == null){
         cupon.style = "display: none";
@@ -70,9 +78,18 @@ function mapCart(){
         boxCart.innerHTML = "";
         boxCart.appendChild(empty);
     }else{
+
         cart = JSON.parse(cart);
         cart.map((index) => {
+
+            if(urlTienda !== index.tienda) return;
+
+            inputNombres.value = index.nombre+";"+inputNombres.value;
+            inputPrecios.value = index.precio+";"+inputPrecios.value;
+            inputStock.value = index.stock+";"+inputStock.value;
+
             const product = document.createElement("div");
+            
             product.innerHTML = 
             `<h3>${index.nombre}</h3>
             <h3>x ${index.stock}</h3>
@@ -92,7 +109,7 @@ function mapCart(){
 
 }
 
-function addCart(nombre,id,stock,precio){
+function addCart(nombre,id,stock,precio,urlTienda){
 
     const countStock = document.getElementById(stock).value;
     const totalPrice = (countStock*precio).toFixed(2);
@@ -102,6 +119,7 @@ function addCart(nombre,id,stock,precio){
     if(list == null){
         newList = [{
             "id": id,
+            "tienda": urlTienda,
             "nombre": nombre,
             "stock": countStock,
             "precio": totalPrice
@@ -117,8 +135,8 @@ function addCart(nombre,id,stock,precio){
 
         let isRepeat = list.filter(index => index.id != id);
         
-        if(isRepeat) newList = [...isRepeat,{"id": id,"nombre":nombre,"stock": countStock, "precio": totalPrice}];
-        else newList = [...list,{"id": id,"nombre":nombre,"stock": countStock, "precio": totalPrice}];
+        if(isRepeat) newList = [...isRepeat,{"id": id,"nombre":nombre,"stock": countStock, "precio": totalPrice,"tienda": urlTienda}];
+        else newList = [...list,{"id": id,"nombre":nombre,"stock": countStock, "precio": totalPrice,"tienda": urlTienda}];
     }
 
     window.localStorage.setItem('carrito', JSON.stringify(newList));

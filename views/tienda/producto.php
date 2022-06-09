@@ -20,7 +20,7 @@
     <input type="hidden" name="nombre" value="<?php echo $data[1]->nombre;?>">
     <input type="hidden" name="precio" value="<?php echo $precio; ?>">
     <input type="hidden" name="stock" value="1">
-    <input type="hidden" name="id">
+    <input type="hidden" name="id" value="">
 </form>
 
 <div class="CardMain">
@@ -34,7 +34,11 @@
 </div>
 
 <div class="CardRecomend">
+
+<?php if(!empty($data[2])){?>
     <h3>Recomendado para tí <3</h3>
+<?php } ?>
+
     <div>
         <?php foreach($data[2] as $index){?>
         <div>
@@ -60,7 +64,7 @@
           return actions.order.create({
             "purchase_units": [{
                 "amount": {
-                    value: <?php echo $precio; ?>
+                    value: <?php echo $data[1]->precio; ?>
                  }
             }]
           });

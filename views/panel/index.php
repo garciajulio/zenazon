@@ -27,7 +27,7 @@
 <?php if(empty($data)){ ?>
     <div class="Empty">
         <img src="<?php echo constant('URL').'/public/img/vacio.png'?>" alt="Vació">
-        <span>Completa la primera tarea: <b>agrega productos a la tienda</b></span>
+        <span>Completa la primera tarea: <b><a href="<?php echo constant('URL').'panel/agregar'?>">agrega un producto</a></b></span>
     </div>
 <?php } ?>
 

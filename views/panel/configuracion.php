@@ -18,7 +18,7 @@
 <?php require 'components/header.php' ?>
 
 <div class="Nav">
-    <span>Agregar productos a tu catálogo online para continuar vendiendo</span>
+    <span>Administra y edita la información de tu tienda online</span>
 </div>
 
 <div class="Config">

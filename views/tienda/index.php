@@ -27,7 +27,7 @@
             <div>
                 <input id="<?php echo "stock-".$index->id_producto; ?>" min="1" max="<?php echo $index->stock; ?>" name="stock" type="number" value="1">
                 </span>
-                <button onclick="addCart('<?php echo $index->nombre; ?>',<?php echo $index->id_producto; ?>,'<?php echo 'stock-'.$index->id_producto; ?>',<?php echo number_format($index->precio,2);?>)">Añadir al carrito</button>
+                <button onclick="addCart('<?php echo $index->nombre; ?>',<?php echo $index->id_producto; ?>,'<?php echo 'stock-'.$index->id_producto; ?>',<?php echo number_format($index->precio,2);?>,'<?php echo $data[0]->url_tienda; ?>')">Añadir al carrito</button>
             </div>
         </div>
     </div>

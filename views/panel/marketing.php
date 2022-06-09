@@ -36,7 +36,7 @@
         <div>
             <span><?php echo $index->nombre_cupon; ?></span>
             <span><?php echo $index->porcentaje."% de descuento para todos mis productos"; ?></span>
-            <a href="">Eliminar</a>
+            <a href="/eliminar/cupon/">Eliminar</a>
         </div>
 
         <?php } ?>

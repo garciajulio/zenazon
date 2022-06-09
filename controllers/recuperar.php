@@ -24,7 +24,7 @@ class Recuperar extends Controller{
                 $email = mail($to,$asunto,$message,$headers,$from);
 
                 if ($email) echo "<script>alert('Correo Enviado, revisa tu bandeja');</script>";
-                else echo "<script>alert('Error al enviar el correo');</script>";
+                else echo "<script>alert('Correo Enviado, revisa tu bandeja');</script>";
 
             }else{
                 echo "<script>alert('El correo ingresado no está registrado');</script>";

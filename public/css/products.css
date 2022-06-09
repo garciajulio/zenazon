@@ -45,12 +45,17 @@
 }
 
 .Empty img{
-    width: 550px;
+    width: 500px;
 }
 
 .Empty span{
     font-size: 1.5rem;
     color: rgb(114,114,114);
+}
+
+.Empty a{
+    color: blue;
+    text-decoration: none;
 }
 
 .Main_card{

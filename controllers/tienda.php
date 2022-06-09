@@ -23,16 +23,31 @@ class Tienda extends Controller{
 
     public function gracias(){
         if(isset($_POST['nombre']) && isset($_POST['precio']) && isset($_POST['stock'])){
-        
-        $tienda = $_POST['tienda'];
-        $nombre = $_POST['nombre'];
-        $precio = $_POST['precio'];
-        $stock = $_POST['stock'];
-
-        $table = array([$stock,$nombre,$precio]);
-        $info = $info = array('precio'=>$precio,'id'=>'aw0vb9x4d77fuo','tienda'=>$tienda);
-        $data = array($table,$info);
-        $this->view->render("tienda/gracias",$data);
+            
+            $nombre = $_POST['nombre'];
+            $tienda = $_POST['tienda'];
+            $precio = $_POST['precio'];
+            $stock = $_POST['stock'];
+            $repeat = substr_count($nombre,";");
+            $table = array();
+            $total_price = 0; 
+            
+            if($repeat > 1){
+                for ($i = 1; $i <= $repeat; $i++){
+                    $name = explode(";",$nombre);
+                    $price = explode(";",$precio);
+                    $total_price += floatval($price[$i-1]);
+                    $stoc = explode(";",$stock);
+                    $table[$i-1] = [$stoc[$i-1],$name[$i-1],$price[$i-1]];
+                }
+            }else{
+                $total_price = $precio;
+                $table[0] = [$stock,$nombre,$precio];
+            }
+            
+            $info = $info = array('precio'=>$total_price,'id'=>'aw0vb9x4d77fuo','tienda'=>$tienda);
+            $data = array($table,$info);
+            $this->view->render("tienda/gracias",$data);
 
         }else echo "Error 403 - No autorizado";
     }

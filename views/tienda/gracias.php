@@ -22,7 +22,7 @@ function Header()
 function ImprovedTable($header, $data)
 {
     
-    $w = array(30,100,40);
+    $w = array(50,100,40);
     // Cabeceras
     for($i=0;$i<count($header);$i++)
         $this->Cell($w[$i],7,$header[$i],1,0,'C');
@@ -30,9 +30,9 @@ function ImprovedTable($header, $data)
 
     foreach($data as $row)
     {
-        $this->Cell($w[0],6,number_format($row[0]),'LR');
+        $this->Cell($w[0],6,number_format($row[0])." unidades",'LR');
         $this->Cell($w[1],6,$row[1],'LR');
-        $this->Cell($w[2],6,number_format($row[2]),'LR',0,'R');
+        $this->Cell($w[2],6,"$/".number_format($row[2]),'LR',0,'R');
         $this->Ln();
     }
 
@@ -125,7 +125,7 @@ function SetStyle($tag, $enable)
 
 
 $pdf = new PDF();
-$html = "<br><p><b>Nombre de la tienda: </b>".$data[1]['tienda']."</p><br><p><b>Id unico de compra: </b>".$data[1]['id']."</p><br><p><b>Precio Total:</b> S/ ".$data[1]['precio']."</p>";
+$html = "<br><p><b>Nombre de la tienda: </b>".$data[1]['tienda']."</p><br><p><b>Id unico de compra: </b>".$data[1]['id']."</p><br><p><b>Precio Total:</b> $/".$data[1]['precio']."</p>";
 $header = array('Cantidad', 'Descripcion', 'Importe');
 $pdf->SetFont('Times','',12);
 $pdf->AddPage();
